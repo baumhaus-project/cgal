@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.16)
+project(cgal)
+
+file(GLOB modules RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/*)
+add_library(CGAL INTERFACE)
+foreach(module ${modules})
+  if(IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${module} AND IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${module}/include)
+    target_include_directories(CGAL INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/${module}/include)
+  endif()
+endforeach(module)
+
+#add_executable(example example.cc)
+#target_link_libraries(example CGAL)
