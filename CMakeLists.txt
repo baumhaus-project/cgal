@@ -5,7 +5,7 @@ file(GLOB modules RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DI
 add_library(CGAL INTERFACE)
 foreach(module ${modules})
   if(IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${module} AND IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${module}/include)
-    target_include_directories(CGAL INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/${module}/include)
+    target_include_directories(CGAL SYSTEM INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/${module}/include)
   endif()
 endforeach(module)
 
