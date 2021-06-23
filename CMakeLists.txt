@@ -3,7 +3,7 @@ project(cgal)
 
 file(GLOB modules RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} ${CMAKE_CURRENT_SOURCE_DIR}/*)
 add_library(CGAL INTERFACE)
-//target_compile_definitions(CGAL INTERFACE CGAL_HEADER_ONLY=1 CGAL_DISABLE_GMP=1)
+#target_compile_definitions(CGAL INTERFACE CGAL_HEADER_ONLY=1 CGAL_DISABLE_GMP=1)
 target_compile_definitions(CGAL INTERFACE CGAL_HEADER_ONLY=1)
 foreach (module ${modules})
   if (IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${module} AND IS_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/${module}/include)
